@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Level Design Portfolio</title>
+    <style>
+        /* Modern, minimal styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: #f5f5f5;
+        }
+        header {
+            background: #222;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .project {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        .project-video {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+        }
+        .project-info {
+            padding: 1.5rem;
+        }
+        h2 {
+            margin-top: 0;
+            color: #222;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: #222;
+            color: #fff;
+        }
+        /* Responsive grid for projects */
+        @media (min-width: 768px) {
+            .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Name</h1>
+        <p>Level Design Portfolio</p>
+    </header>
+
+    <div class="container">
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project">
+                <div class="project-video">
+                    <!-- Replace with your embedded video -->
+                    <iframe 
+                        src="https://streamable.com/e/your-video-id?autoplay=0&controls=1" 
+                        frameborder="0" 
+                        allowfullscreen
+                        class="project-video">
+                    </iframe>
+                </div>
+                <div class="project-info">
+                    <h2>Project Title 1</h2>
+                    <p><strong>Tools:</strong> Unreal Engine, Blender, etc.</p>
+                    <p>Brief description of your design goals, challenges, and key features.</p>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project">
+                <div class="project-video">
+                    <!-- Replace with your embedded video -->
+                    <iframe 
+                        src="https://streamable.com/e/your-video-id?autoplay=0&controls=1" 
+                        frameborder="0" 
+                        allowfullscreen
+                        class="project-video">
+                    </iframe>
+                </div>
+                <div class="project-info">
+                    <h2>Project Title 2</h2>
+                    <p><strong>Tools:</strong> Unity, Maya, etc.</p>
+                    <p>Brief description of your design goals, challenges, and key features.</p>
+                </div>
+            </div>
+
+            <!-- Add more projects as needed -->
+        </div>
+    </div>
+
+    <footer>
+        <p>Contact: your.email@example.com | <a href="https://github.com/yourusername" style="color: #4da6ff;">GitHub</a></p>
+    </footer>
+</body>
+</html>
