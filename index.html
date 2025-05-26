@@ -1,54 +1,310 @@
-<!-- 🎮 About Me Section -->
-<div class="about-me" style="
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    padding: 3rem;
-    border-radius: 15px;
-    margin: 3rem auto;
-    max-width: 900px;
-    color: white;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-">
-    <h2 style="
-        font-family: 'Space Mono', monospace;
-        color: #ff7e5f;
-        text-align: center;
-        margin-bottom: 1.5rem;
-        font-size: 2.2rem;
-    ">Behind the Pixels</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi Sai Vigneswara | Level Design Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6e45e2;
+            --secondary: #88d3ce;
+            --dark: #1a1a2e;
+            --light: #f5f5f7;
+            --accent: #ff7e5f;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            font-family: 'Space Mono', monospace;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Sequence Player Styles */
+        .sequence-showcase {
+            background: #252540;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            margin: 3rem 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .sequence-showcase:hover {
+            transform: translateY(-5px);
+        }
+        
+        #sequenceCanvas {
+            width: 100%;
+            height: 500px;
+            background: #000;
+            display: block;
+        }
+        
+        .sequence-controls {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.3);
+            align-items: center;
+        }
+        
+        .control-btn {
+            padding: 0.8rem 1.8rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Space Mono', monospace;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .control-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .control-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+        
+        #progressBar {
+            flex-grow: 1;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            appearance: none;
+        }
+        
+        #progressBar::-webkit-progress-bar {
+            background: transparent;
+        }
+        
+        #progressBar::-webkit-progress-value {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+        
+        .time-display {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        /* Project Info */
+        .project-info {
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .project-info h2 {
+            font-family: 'Space Mono', monospace;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .project-info p {
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+        }
+        
+        .tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .tool-tag {
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LEVEL DESIGN SHOWCASE</h1>
+        <p>Immersive Environments | Strategic Gameplay Spaces</p>
+    </header>
     
-    <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
-        <div style="flex: 1; min-width: 300px;">
-            <p style="margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;">
-                🔥 <strong>Hi, I'm Ravi Sai Vigneswara</strong> – a <span style="color: #6e45e2;">game designer</span> and 
-                <span style="color: #88d3ce;">Unreal/Unity developer</span> obsessed with crafting immersive worlds. 
-                I don't just build levels – I engineer <em>experiences</em>.
-            </p>
+    <div class="container">
+        <div class="sequence-showcase">
+            <canvas id="sequenceCanvas"></canvas>
             
-            <p style="margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;">
-                🧠 My design philosophy: <strong>"Question everything."</strong> Why does this mechanic work? 
-                How does this space make players <em>feel</em>? I reverse-engineer great games to understand 
-                their magic.
-            </p>
+            <div class="sequence-controls">
+                <button id="playBtn" class="control-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    PLAY
+                </button>
+                <button id="stopBtn" class="control-btn">
+                    <svg viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg>
+                    STOP
+                </button>
+                <progress id="progressBar" value="0" max="100"></progress>
+                <div class="time-display" id="timeDisplay">00:00 / 00:00</div>
+            </div>
             
-            <div style="
-                background: rgba(255, 255, 255, 0.1);
-                padding: 1.5rem;
-                border-radius: 10px;
-                border-left: 4px solid #ff7e5f;
-            ">
-                <p style="font-style: italic; margin-bottom: 0.5rem;">"I don't just finish levels — I pause, observe, and question."</p>
-                <div style="display: flex; flex-wrap: wrap; gap: 0.7rem;">
-                    <span style="background: #6e45e2; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem;">Level Design</span>
-                    <span style="background: #88d3ce; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem;">Gameplay Scripting</span>
-                    <span style="background: #ff7e5f; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem;">Player Psychology</span>
+            <div class="project-info">
+                <h2>Vertical Combat Arena</h2>
+                <p>This multi-level battlefield demonstrates advanced vertical gameplay design, encouraging players to utilize height advantages and flanking routes. The space balances risk/reward through strategic vantage points and environmental cover.</p>
+                <div class="tools">
+                    <span class="tool-tag">Unreal Engine 5</span>
+                    <span class="tool-tag">Level Design</span>
+                    <span class="tool-tag">Blueprints</span>
+                    <span class="tool-tag">Lighting</span>
+                    <span class="tool-tag">Scripted Events</span>
                 </div>
             </div>
         </div>
-        
-        <div style="flex: 1; min-width: 300px; text-align: center;">
-            <img src="https://media.giphy.com/media/L8K62iTDkzGX6/giphy.gif" 
-                 style="width: 100%; max-width: 350px; border-radius: 10px; border: 3px solid #6e45e2;"
-                 alt="Game Dev Animation">
-        </div>
     </div>
-</div>
+
+    <script type="module">
+        import { FastImageSequence } from 'https://cdn.jsdelivr.net/npm/@mediamonks/fast-image-sequence@latest/dist/fast-image-sequence.min.js';
+        
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Configuration
+            const config = {
+                container: document.getElementById('sequenceCanvas'),
+                options: {
+                    frames: 3226,
+                    src: {
+                        imageURL: (index) => `Videos/PR/SceneOutcam.${String(index + 2).padStart(4, '0')}.jpeg`,
+                        maxCachedImages: 32
+                    },
+                    objectFit: 'cover',
+                    loop: false,
+                    showDebugInfo: false
+                }
+            };
+            
+            // Initialize player
+            const sequence = new FastImageSequence(config.container, config.options);
+            
+            // DOM elements
+            const playBtn = document.getElementById('playBtn');
+            const stopBtn = document.getElementById('stopBtn');
+            const progressBar = document.getElementById('progressBar');
+            const timeDisplay = document.getElementById('timeDisplay');
+            
+            // Animation state
+            let isPlaying = false;
+            let animationId;
+            let lastUpdateTime = 0;
+            const fps = 30;
+            const frameDuration = 1000 / fps;
+            
+            // Format time (seconds to MM:SS)
+            const formatTime = (seconds) => {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+            };
+            
+            // Update progress bar and time display
+            const updateUI = () => {
+                const progress = (sequence.progress * 100) || 0;
+                progressBar.value = progress;
+                
+                const currentTime = sequence.progress * (config.options.frames / fps);
+                const totalTime = config.options.frames / fps;
+                timeDisplay.textContent = `${formatTime(currentTime)} / ${formatTime(totalTime)}`;
+            };
+            
+            // Animation loop
+            const animate = (timestamp) => {
+                if (!isPlaying) return;
+                
+                if (!lastUpdateTime || timestamp - lastUpdateTime >= frameDuration) {
+                    sequence.progress += (1 / config.options.frames);
+                    
+                    if (sequence.progress >= 1) {
+                        sequence.progress = 0;
+                        if (!config.options.loop) {
+                            isPlaying = false;
+                            playBtn.textContent = 'PLAY';
+                            return;
+                        }
+                    }
+                    
+                    updateUI();
+                    lastUpdateTime = timestamp;
+                }
+                
+                animationId = requestAnimationFrame(animate);
+            };
+            
+            // Event listeners
+            playBtn.addEventListener('click', () => {
+                isPlaying = !isPlaying;
+                playBtn.innerHTML = isPlaying ? 
+                    '<svg viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg> PAUSE' : 
+                    '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> PLAY';
+                
+                if (isPlaying) {
+                    animationId = requestAnimationFrame(animate);
+                } else {
+                    cancelAnimationFrame(animationId);
+                }
+            });
+            
+            stopBtn.addEventListener('click', () => {
+                isPlaying = false;
+                sequence.progress = 0;
+                updateUI();
+                playBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> PLAY';
+                cancelAnimationFrame(animationId);
+            });
+            
+            progressBar.addEventListener('input', (e) => {
+                sequence.progress = e.target.value / 100;
+                updateUI();
+            });
+            
+            // Initial UI update
+            updateUI();
+            
+            // Preload first few frames for better UX
+            await sequence.sources[0].setMaxCachedImages(10);
+        });
+    </script>
+</body>
+</html>
